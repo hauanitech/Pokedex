@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Pokemon = require("../models/pokemons");
+const Pokemon = require("./models");
 
 // Get ALL
 router.get("/", async (req, res)=>{
