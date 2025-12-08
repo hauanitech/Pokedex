@@ -6,6 +6,8 @@ const db = mongoose.connection
 
 const app = express();
 
+app.use(express.json());
+
 const pokemonRouter = require("./routes/pokemons");
 
 

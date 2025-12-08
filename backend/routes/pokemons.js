@@ -5,31 +5,71 @@ const Pokemon = require("../models/pokemons");
 // Get ALL
 router.get("/", async (req, res)=>{
     try {
-        const pokemons = await Pokemon.find();
-        res.json({data : pokemons})
+        const pokemon = await Pokemon.find();
+        res.json({data : pokemon})
     } catch(err){
         res.status(500).json({data : err.message})
     }
 })
 
-// Get One By Id
-router.get("/:id", (req, res)=>{
-    req.params.id
+router.get("/:id", getPokemon, (req, res)=>{
+    res.json({data : res.pokemon})
 })
 
-// Create One
-router.post("/", (req, res)=>{
-
+router.post("/", async (req, res)=>{
+    const pokemon = new Pokemon({
+        name: req.body.name,
+        type: req.body.type
+    })
+    try {
+        const newPokemon = await pokemon.save();
+        res.status(201).json({data : newPokemon});
+    } catch(err){
+        res.status(400).json({data : err.message});
+    }
 })
 
-// Update One
-router.patch("/:id", (req, res)=>{
-    
+router.patch("/:id", getPokemon, async (req, res)=>{
+    if(req.body.name != null){
+        res.pokemon.name = req.body.name
+    }
+    if(req.body.type != null){
+        res.pokemon.type = req.body.type
+    }
+    try {
+        const updatedPokemon = await res.pokemon.save()
+        res.status(200).json({data : updatedPokemon})
+    } catch (error) {
+        res.status(400).json({data : error.message})
+    }
 })
 
-// Delete One
-router.delete("/:id", (req, res)=>{
-    
+router.delete("/:id", getPokemon, async (req, res)=>{
+    try {
+        await res.pokemon.deleteOne()
+        res.status(200).json({data : "Pokemon Deleted Successfully"})
+    } catch (error) {
+        res.status(500).json({data : error.message});
+    }
 })
+
+
+async function getPokemon(req, res, next){
+
+    let pokemon
+    try {
+        pokemon = await Pokemon.findById(req.params.id);
+        if(pokemon == null){
+            return res.status(404).json({data : "Pokemon Not Found"});
+        }
+    } catch (error) {
+        return res.status(500).json({data : error.message})
+    }
+
+    res.pokemon = pokemon;
+    next();
+
+}
+
 
 module.exports = router;
