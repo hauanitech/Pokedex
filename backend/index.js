@@ -1,17 +1,15 @@
 require("dotenv").config()
 
 const express = require("express");
-const mongoose = require("mongoose");
-const Pokemon = require("./models/pokemons");
-const db = mongoose.connection
-
 const app = express();
 
-app.use(express.json());
+const mongoose = require("mongoose");
+const db = mongoose.connection
 
+const Pokemon = require("./models/pokemons");
 const pokemonRouter = require("./routes/pokemons");
 
-
+app.use(express.json());
 app.get("/", (req, res) => {
     res.send("App Is Running Perfectly");
 })
