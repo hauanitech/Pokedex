@@ -18,8 +18,13 @@ router.get("/:id", getPokemon, (req, res)=>{
 
 router.post("/", async (req, res)=>{
     const pokemon = new Pokemon({
+        id: req.body.id,
         name: req.body.name,
-        type: req.body.type
+        types: req.body.types,
+        sprite: req.body.sprite,
+        height: req.body.height,
+        weight: req.body.weight,
+        stats: req.body.stats
     })
     try {
         const newPokemon = await pokemon.save();
