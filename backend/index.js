@@ -6,8 +6,8 @@ const app = express();
 const mongoose = require("mongoose");
 const db = mongoose.connection
 
-const Pokemon = require("./models/pokemons");
-const pokemonRouter = require("./routes/pokemons");
+const Pokemon = require("./api/pokemon/models");
+const pokemonRouter = require("./api/pokemon/routes");
 
 app.use(express.json());
 app.get("/", (req, res) => {
