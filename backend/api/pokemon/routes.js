@@ -2,7 +2,15 @@ const express = require("express");
 const router = express.Router();
 const Pokemon = require("./models");
 
-// Get ALL
+// Le middleware d'auth
+const isAuthenticated = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.status(401).json({ data: "Not authenticated" });
+};
+
+
 router.get("/", async (req, res)=>{
     try {
         const pokemon = await Pokemon.find();
@@ -16,7 +24,7 @@ router.get("/:id", getPokemon, (req, res)=>{
     res.json({data : res.pokemon})
 })
 
-router.post("/", async (req, res)=>{
+router.post("/", isAuthenticated, async (req, res)=>{
     const pokemon = new Pokemon({
         id: req.body.id,
         name: req.body.name,
@@ -34,7 +42,7 @@ router.post("/", async (req, res)=>{
     }
 })
 
-router.patch("/:id", getPokemon, async (req, res)=>{
+router.patch("/:id", isAuthenticated, getPokemon, async (req, res)=>{
     if(req.body.name != null){
         res.pokemon.name = req.body.name
     }
@@ -49,7 +57,7 @@ router.patch("/:id", getPokemon, async (req, res)=>{
     }
 })
 
-router.delete("/:id", getPokemon, async (req, res)=>{
+router.delete("/:id", isAuthenticated, getPokemon, async (req, res)=>{
     try {
         await res.pokemon.deleteOne()
         res.status(200).json({data : "Pokemon Deleted Successfully"})

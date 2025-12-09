@@ -2,14 +2,27 @@ require("dotenv").config()
 
 const express = require("express");
 const app = express();
+const session = require("express-session");
+const passport = require("passport");
 
 const mongoose = require("mongoose");
 const db = mongoose.connection
 
 const Pokemon = require("./api/pokemon/models");
 const pokemonRouter = require("./api/pokemon/routes");
+const userRouter = require("./api/users/routes");
+
+require("./config/passport")(passport);
 
 app.use(express.json());
+app.use(session({
+    secret: process.env.SESSION_SECRET || "your-secret-key",
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.get("/", (req, res) => {
     res.send("App Is Running Perfectly");
 })
@@ -28,11 +41,13 @@ db.once("open", async ()=>{
     await seedPokemon();
     
     app.use("/pokemons", pokemonRouter);
+    app.use("/users", userRouter);
     
     app.listen(3000, ()=>{
         console.log(`Server Is Running On : http://localhost:3000/`);
     });
 });
+
 
 async function seedPokemon() {
     try {
