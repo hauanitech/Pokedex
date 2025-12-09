@@ -1,4 +1,5 @@
 # Pokedex Project
+___
 
 Projet simple d'un Pokedex contenant les 151 premiers Pokemons.
 Ce Jeu permettra aux utilisateurs de revoir les origines de Pokemon, 
@@ -13,12 +14,25 @@ et de les faire se battre contre d'autres utilisateurs ou bien des bots.
 Cloner le repository avec :
 
 ```bash
-git clone 
+git clone https://github.com/hauanitech/Pokedex.git
 ```
 
+Télécharger les dépendences :
+
 ```bash
+#if not done yet
+cd backend
+
 npm i
 ```
+
+Lancer le Serveur
+
+```sh
+npm start
+```
+
+N'oubliez pas de vous créer un fichier ```.env``` et de le remplir comme dans le ```.env.example```
 
 ### Stack Used
 
