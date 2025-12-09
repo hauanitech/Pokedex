@@ -8,9 +8,9 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 const db = mongoose.connection
 
+const User = require("./api/users/models");
 const Pokemon = require("./api/pokemon/models");
-const pokemonRouter = require("./api/pokemon/routes");
-const userRouter = require("./api/users/routes");
+const apiRouter = require("./api/routes");
 
 require("./config/passport")(passport);
 
@@ -39,9 +39,9 @@ db.once("open", async ()=>{
     console.log("Connected To Database")
     
     await seedPokemon();
+    await createAdmin();
     
-    app.use("/pokemons", pokemonRouter);
-    app.use("/users", userRouter);
+    app.use("/api", apiRouter);
     
     app.listen(3000, ()=>{
         console.log(`Server Is Running On : http://localhost:3000/`);
@@ -89,5 +89,25 @@ async function seedPokemon() {
         console.log(`Successfully seeded ${pokemonData.length} Pokemon!`);
     } catch (error) {
         console.error("Error seeding Pokemon:", error.message);
+    }
+}
+
+async function createAdmin(){
+    const username = process.env.ADMIN_USERNAME;
+    const password = process.env.ADMIN_PASSWORD;
+
+    try {
+        const existingUser = await User.findOne({ username });
+        if (existingUser) {
+            console.log("Admin User Already Exist")
+            return;
+        }
+        const user = new User({ username, password, role: "admin" });
+        await user.save();
+
+        console.log("Admin User Created Successfully");
+
+    } catch (error) {
+        console.error(error.message);
     }
 }
