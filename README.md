@@ -1,5 +1,4 @@
 # Pokedex Project
-___
 
 Projet simple d'un Pokedex contenant les 151 premiers Pokemons.
 Ce Jeu permettra aux utilisateurs de revoir les origines de Pokemon, 
