@@ -10,6 +10,8 @@ et de les faire se battre contre d'autres utilisateurs ou bien des bots.
 
 ## How to run the projet 
 
+### Backend
+
 Cloner le repository avec :
 
 ```bash
@@ -31,7 +33,11 @@ Lancer le Serveur
 npm start
 ```
 
-N'oubliez pas de vous créer un fichier ```.env``` et de le remplir comme dans le ```.env.example```
+*N'oubliez pas de vous créer un fichier ```.env``` et de le remplir comme dans le ```.env.example```*
+
+### Frontend
+
+Not Implemented Yet
 
 ### Stack Used
 
