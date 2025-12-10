@@ -53,7 +53,35 @@ npm start
 
 ### Frontend
 
-Not Implemented Yet
+Aller dans le dossier frontend :
+
+```bash
+cd frontend
+```
+
+Installer les dépendances :
+
+```bash
+npm install
+```
+
+Créer un fichier `.env` basé sur `.env.example` :
+
+```bash
+# Windows
+copy .env.example .env
+
+# Linux/Mac
+cp .env.example .env
+```
+
+Lancer le serveur de développement :
+
+```bash
+npm run dev
+```
+
+Le frontend sera accessible sur `http://localhost:5173`
 
 ### Stack Used
 
