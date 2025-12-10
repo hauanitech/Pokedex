@@ -1,25 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Pokemon = require("./models");
-
-// Le middleware d'auth
-const isAuthenticated = (req, res, next) => {
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    res.status(401).json({ data: "Not authenticated" });
-};
-
-// Auth middleware for admin verif
-const isAdmin = (req, res, next) => {
-    if (!req.isAuthenticated()) {
-        return res.status(401).json({ data: "Not authenticated" });
-    }
-    if (req.user.role !== 'admin') {
-        return res.status(403).json({ data: "Access denied. Admin only" });
-    }
-    next();
-};
+const { isAdmin } = require("../../middleware/auth");
+const getPokemon = require("../../middleware/routes")
 
 
 router.get("/", async (req, res)=>{
@@ -76,24 +59,6 @@ router.delete("/:id", isAdmin, getPokemon, async (req, res)=>{
         res.status(500).json({data : error.message});
     }
 })
-
-
-async function getPokemon(req, res, next){
-
-    let pokemon
-    try {
-        pokemon = await Pokemon.findById(req.params.id);
-        if(pokemon == null){
-            return res.status(404).json({data : "Pokemon Not Found"});
-        }
-    } catch (error) {
-        return res.status(500).json({data : error.message})
-    }
-
-    res.pokemon = pokemon;
-    next();
-
-}
 
 
 module.exports = router;
