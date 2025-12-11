@@ -85,4 +85,4 @@ Le frontend sera accessible sur `http://localhost:5173`
 
 ### Stack Used
 
-ExpressJS + MongoDB
+ExpressJS + MongoDB & ReactJS + Vite
