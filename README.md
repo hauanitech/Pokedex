@@ -8,7 +8,7 @@ ou pour les nouveaux, de découvrir le monde des Pokemon.
 Le jeu consistera, pour ceux qui le souhaite, à sélectionner 6 pokemons de leurs choix
 et de les faire se battre contre d'autres utilisateurs ou bien des bots.
 
-## 📐 Design Documentation
+## Design Documentation
 
 Toute la documentation des designs est organisée dans le dossier `docs/` :
 
