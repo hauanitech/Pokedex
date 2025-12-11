@@ -40,6 +40,10 @@
     position: relative;
 }
 
+.navbar-link.active {
+    border-bottom: 2px solid white;
+}
+
 .navbar-link::after {
     content: '';
     width: 0%;
