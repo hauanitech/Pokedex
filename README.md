@@ -8,21 +8,13 @@ ou pour les nouveaux, de découvrir le monde des Pokemon.
 Le jeu consistera, pour ceux qui le souhaite, à sélectionner 6 pokemons de leurs choix
 et de les faire se battre contre d'autres utilisateurs ou bien des bots.
 
-**Landing Page**
+## 📐 Design Documentation
 
-![Landing-Page](readme-assets/Landing-page.png)
+Toute la documentation des designs est organisée dans le dossier `docs/` :
 
-**Featured Pokemons**
-
-![Featured Section](readme-assets/Featuring%20Section.png)
-
-**Redirection Section**
-
-![Redirection Section](readme-assets/Redirect%20Page.png)
-
-**Footer Section**
-
-![Footer](readme-assets/Footer.png)
+- **[Main Page Design](docs/DESIGN-MAIN-PAGE.md)** - Landing page, navbar, hero section, featured pokemons
+- **[Login Form](docs/DESIGN-LOGIN-FORM.md)** - Formulaire d'authentification et inscription
+- **[Pokedex Page](docs/DESIGN-POKEDEX-PAGE.md)** - Liste complète, filtres et recherche
 
 ## How to run the projet 
 
