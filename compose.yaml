@@ -1,0 +1,27 @@
+services:
+  db:
+    image: mongo:8.0
+    container_name: pokedex-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongovol:/data/db
+
+  api:
+    image: node:25-alpine
+    container_name: pokedex-backend
+    depends_on:
+      - db
+    working_dir: /app
+    environment:
+      DATABASE_URL: mongodb://db:27017/pokedex
+      PORT: 3000
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install && npm start"
+
+volumes:
+  mongovol:
