@@ -18,6 +18,14 @@ Toute la documentation des designs est organisée dans le dossier `docs/` :
 
 ## How to run the projet 
 
+(Recommended) Lancer avec Docker Compose :
+
+```bash
+docker compose up -d --build
+```
+
+Ou sinon
+
 ### Backend
 
 Cloner le repository avec :
