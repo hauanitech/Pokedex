@@ -16,7 +16,7 @@ const apiRouter = require("./api/routes");
 require("./config/passport")(passport);
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: "*", // à changer pour la prod
     credentials: true
 }));
 app.use(express.json());

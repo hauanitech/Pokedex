@@ -1,11 +1,3 @@
-# Critical
-
-**Compléter Backend :**
-
-- Rajouter une table monthly selection ( contiendra un maximum de 12 mois )
-les objets mois auront la liste de 3 pokemons selectionné, le nom du mois ainsi que le type
-du mois.
-
 # Medium
 
 **Finir la main page**
