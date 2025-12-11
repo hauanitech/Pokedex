@@ -10,7 +10,6 @@ export function Navbar() {
                 <ul className="navbar-menu">
                     <li><a href="/" className="navbar-link active">Home</a></li>
                     <li><a href="/pokedex" className="navbar-link">Pokedex</a></li>
-                    <li><a href="/play" className="navbar-link">Play</a></li>
                     <li><a href="/about" className="navbar-link">About</a></li>
                 </ul>
                 <button className="navbar-signin">Sign In</button>
