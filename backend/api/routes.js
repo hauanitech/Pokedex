@@ -8,7 +8,7 @@ const monthlySelectionRouter = require("./monthlySelection/routes");
 
 
 router.use("/pokemon", pokemonRouter);
-router.use("/user", userRouter);
+router.use("/users", userRouter);
 router.use("/admin", adminRouter);
 router.use("/monthlySelection", monthlySelectionRouter);
 
