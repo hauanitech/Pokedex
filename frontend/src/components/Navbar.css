@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(6, 24, 56, 0.95);
+    background: rgba(6, 24, 56, 0.5);
     backdrop-filter: blur(10px);
     padding: 1rem 0;
     z-index: 1000;
@@ -68,6 +68,22 @@
     cursor: pointer;
     padding: 0.5rem 1.5rem;
     transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-signin::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    bottom: 10%;
+    left: 23%;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.navbar-signin.active::after {
+    width: 55%;
 }
 
 .navbar-signin:hover {

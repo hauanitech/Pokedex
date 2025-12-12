@@ -21,6 +21,15 @@
     overflow: hidden;
 }
 
+.hero-bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 .hero-bg-image {
     width: auto;
     height: 100%;
@@ -30,9 +39,9 @@
     position: absolute;
     right: -5%;
     top: 50%;
-    transform: translateY(-45%);
+    transform: translateY(-45%) translateX(-20%) rotateZ(-20deg);
+    z-index: 2;
 }
-
 .hero-content {
     position: relative;
     z-index: 10;
