@@ -15,6 +15,7 @@ Toute la documentation des designs est organisée dans le dossier `docs/` :
 - **[Main Page Design](docs/DESIGN-MAIN-PAGE.md)** - Landing page, navbar, hero section, featured pokemons
 - **[Login Form](docs/DESIGN-LOGIN-FORM.md)** - Formulaire d'authentification et inscription
 - **[Pokedex Page](docs/DESIGN-POKEDEX-PAGE.md)** - Liste complète, filtres et recherche
+- ****
 
 ## How to run the projet 
 
