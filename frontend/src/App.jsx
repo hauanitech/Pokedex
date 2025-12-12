@@ -7,6 +7,8 @@ import { Redirect } from './components/Redirect';
 import { Auth } from './components/Auth';
 import { Pokedex } from './components/Pokedex';
 import { About } from './components/About';
+import { Profile } from './components/Profile';
+import { TermsAndConditions } from './components/TermsAndConditions';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route path="/auth" element={<Auth />} />
           <Route path="/pokedex" element={<Pokedex />} />
           <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/terms" element={<TermsAndConditions />} />
         </Routes>
       </div>
     </Router>

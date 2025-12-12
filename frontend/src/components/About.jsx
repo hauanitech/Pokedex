@@ -91,12 +91,13 @@ export function About() {
 
                 <section className="about-footer">
                     <p className="footer-text">
-                        Fait avec ❤️ pour les fans de Pokémon
+                        Fait par <a href="https://hauani.tech/" target="_blank" rel="noopener noreferrer">hauani</a>
                     </p>
                     <p className="footer-disclaimer">
                         Pokémon et tous les personnages associés sont des marques déposées de Nintendo, 
                         Game Freakpassiont Creatures. Ce site est un projet éducatif non commercial.
                     </p>
+                    <a href="/terms" className='terms'>Terms & Conditions</a>
                 </section>
             </div>
         </div>

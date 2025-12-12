@@ -98,7 +98,7 @@ export function Auth(){
                         <span className="form-link">forgot password ?</span>
                     ) : (
                         <p className="form-terms">
-                            by creating an account, you clearly confirm your consent to the <a href="#">terms & conditions</a>
+                            by creating an account, you clearly confirm your consent to the <a href="/terms">terms & conditions</a>
                         </p>
                     )}
 
