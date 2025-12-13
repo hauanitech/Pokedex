@@ -15,7 +15,23 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: ['user', 'admin'],
         default: 'user'
-    }
+    },
+    profilePhoto: {
+        type: String,
+        default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png' // photo de profile par défault bulbizarre
+    },
+    winRate: {
+        type: Number,
+        default: 0
+    },
+    totalGames: {
+        type: Number,
+        default: 0
+    },
+    favoriteType: {
+        type: String,
+        default: 'Normal'
+    },
 });
 
 userSchema.pre("save", async function() {

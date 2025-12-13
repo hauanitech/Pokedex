@@ -38,4 +38,35 @@ router.get("/profile", (req, res) => {
     res.json({ data: req.user });
 });
 
+router.put("/profile", async (req, res) => {
+    if (!req.isAuthenticated()) {
+        return res.status(401).json({ data: "Not authenticated" });
+    }
+    try {
+        const { username, profilePhoto, favoriteType } = req.body;
+        const updateData = {};
+        
+        // verif si l'username est déjà pris pour gérer les conflits
+        if (username !== undefined && username !== req.user.username) {
+            const existingUser = await User.findOne({ username });
+            if (existingUser) {
+                return res.status(400).json({ data: "Username already taken" });
+            }
+            updateData.username = username;
+        }
+        
+        if (profilePhoto !== undefined) updateData.profilePhoto = profilePhoto;
+        if (favoriteType !== undefined) updateData.favoriteType = favoriteType;
+        
+        const updatedUser = await User.findByIdAndUpdate(
+            req.user._id,
+            updateData,
+            { new: true }
+        );
+        res.json({ data: updatedUser });
+    } catch (err) {
+        res.status(500).json({ data: err.message });
+    }
+});
+
 module.exports = router;
