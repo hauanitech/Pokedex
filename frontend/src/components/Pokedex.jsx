@@ -135,9 +135,9 @@ export function Pokedex() {
                     {loading ? (
                         <div className="loading">Loading...</div>
                     ) : (
-                        <div className="pokemon-grid">
+                        <div className="pokedex-grid">
                             {filteredPokemons.map(pokemon => (
-                                <div key={pokemon.id} className="pokemon-card">
+                                <div key={pokemon.id} className="pokedex-card">
                                     <div className="pokemon-image-container">
                                         <img 
                                             src={pokemon.sprite} 
